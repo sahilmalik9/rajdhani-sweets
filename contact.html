@@ -1,50 +1,55 @@
-<!-- contact.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact - Rajdhani Sweets</title>
+  <title>Contact Us - Rajdhani Sweets</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <header>
-    <h1>Rajdhani Sweets</h1>
+    <div class="logo-nav">
+      <img src="images/logo.jpeg" alt="Rajdhani Sweets Logo" class="logo" />
+      <h1>Rajdhani Sweets</h1>
+    </div>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="menu.html">Menu</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <h2>Get in Touch</h2>
+  <section class="hero">
+    <h2>Contact Us</h2>
+    <p>We’d love to hear from you! Reach out with questions, orders, or just to say hello.</p>
+  </section>
 
-    <section class="contact-box">
-      <p><strong>📍 Address:</strong> 123 Spice Street, Brampton, ON, Canada</p>
-      <p><strong>📞 Phone:</strong> +1 (123) 456-7890</p>
-      <p><strong>✉️ Email:</strong> contact@rajdhanisweets.com</p>
-      <p><strong>🕘 Open Hours:</strong> 9:00 AM – 9:00 PM (Every Day)</p>
-    </section>
+  <section class="featured">
+    <h2>Our Info</h2>
+    <p><strong>Address:</strong> 123 Sweet Street, Toronto, ON, Canada</p>
+    <p><strong>Phone:</strong> +1 (123) 456-7890</p>
+    <p><strong>Email:</strong> contact@rajdhanisweets.com</p>
 
-    <h3 style="margin-top: 40px;">Send Us a Message</h3>
+    <br><br>
 
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" rows="4" required></textarea>
-      <button type="submit">Send Message</button>
+    <form style="max-width: 600px; margin: 0 auto;">
+      <label>Name:</label><br>
+      <input type="text" style="width: 100%; padding: 10px; margin-bottom: 10px;" /><br>
+      <label>Email:</label><br>
+      <input type="email" style="width: 100%; padding: 10px; margin-bottom: 10px;" /><br>
+      <label>Message:</label><br>
+      <textarea style="width: 100%; padding: 10px; height: 100px;"></textarea><br><br>
+      <button type="submit" class="btn">Send Message</button>
     </form>
-
-  </main>
+  </section>
 
   <footer>
-    <p>&copy; 2025 Rajdhani Sweets | We'd Love to Hear From You 📬</p>
+    <p>&copy; 2025 Rajdhani Sweets. All rights reserved.</p>
+    <p>Email: contact@rajdhanisweets.com | Phone: +1 (123) 456-7890</p>
   </footer>
-
 </body>
 </html>

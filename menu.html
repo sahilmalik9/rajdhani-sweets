@@ -1,4 +1,3 @@
-<!-- menu.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,75 +5,117 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Menu - Rajdhani Sweets</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .menu-img { width: 100px; height: 100px; object-fit: cover; margin-right: 10px; border-radius: 8px; }
+    .menu-list li { display: flex; align-items: center; margin-bottom: 10px; }
+    .add-btn { background-color: #FC6906; color: white; padding: 5px 10px; border: none; border-radius: 5px; cursor: pointer; margin-left: auto; }
+    .cart-btn { position: fixed; top: 20px; right: 20px; background: #5B6539; color: white; padding: 10px 15px; border-radius: 5px; cursor: pointer; z-index: 999; }
+    .cart { position: fixed; top: 0; right: -350px; width: 300px; height: 100%; background: #F8C7A1; box-shadow: -2px 0 10px rgba(0,0,0,0.2); padding: 20px; overflow-y: auto; transition: right 0.3s ease; z-index: 999; }
+    .cart.open { right: 0; }
+    .cart h2 { margin-top: 0; }
+    .cart-item { display: flex; justify-content: space-between; margin-bottom: 10px; }
+    .cart-item button { background: red; color: white; border: none; border-radius: 3px; cursor: pointer; padding: 2px 6px; }
+    .total { font-weight: bold; margin-top: 15px; }
+    .checkout-btn { margin-top: 20px; background-color: #E69C68; color: white; padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer; width: 100%; }
+  </style>
 </head>
 <body>
-
   <header>
-    <h1>Rajdhani Sweets</h1>
+    <div class="logo">Rajdhani Sweets</div>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="menu.html">Menu</a></li>
         <li><a href="about.html">About</a></li>
+        <li><a href="menu.html" class="active">Menu</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <h2>Our Menu</h2>
+  <button class="cart-btn" onclick="toggleCart()">🛒 Cart (<span id="cart-count">0</span>)</button>
+  <div class="cart" id="cart">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <p class="total">Total: $<span id="cart-total">0.00</span></p>
+    <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+  </div>
 
-    <div class="menu-grid">
+  <section class="featured">
+    <h1>Our Menu</h1>
+    <h2>Traditional Sweets</h2>
+    <ul class="menu-list">
+      <li><img src="images/g1.jpeg" alt="Gulab Jamun" class="menu-img" /> Gulab Jamun - $2.50 <button class="add-btn" onclick="addToCart('Gulab Jamun', 2.5)">Add to Cart</button></li>
+      <li><img src="images/g2.jpeg" alt="Rasgulla" class="menu-img" /> Rasgulla - $2.00 <button class="add-btn" onclick="addToCart('Rasgulla', 2.0)">Add to Cart</button></li>
+      <li><img src="images/g3.jpeg" alt="Jalebi" class="menu-img" /> Jalebi - $2.20 <button class="add-btn" onclick="addToCart('Jalebi', 2.2)">Add to Cart</button></li>
+      <li><img src="images/g4.jpeg" alt="Kaju Katli" class="menu-img" /> Kaju Katli - $3.00 <button class="add-btn" onclick="addToCart('Kaju Katli', 3.0)">Add to Cart</button></li>
+    </ul>
 
-      <div class="menu-card">
-        <h3>🍩 Gulab Jamun</h3>
-        <p>Soft and sweet, served warm.</p>
-        <span>$3.00</span>
-        <button>Add to Cart</button>
-      </div>
+    <h2>Snacks</h2>
+    <ul class="menu-list">
+      <li><img src="images/g5.jpeg" alt="Samosa" class="menu-img" /> Samosa - $1.50 <button class="add-btn" onclick="addToCart('Samosa', 1.5)">Add to Cart</button></li>
+      <li><img src="images/g6.jpeg" alt="Paneer Pakora" class="menu-img" /> Paneer Pakora - $3.50 <button class="add-btn" onclick="addToCart('Paneer Pakora', 3.5)">Add to Cart</button></li>
+      <li><img src="images/g7.jpeg" alt="Chole Bhature" class="menu-img" /> Chole Bhature - $5.00 <button class="add-btn" onclick="addToCart('Chole Bhature', 5.0)">Add to Cart</button></li>
+      <li><img src="images/g8.jpeg" alt="Dhokla" class="menu-img" /> Dhokla - $3.00 <button class="add-btn" onclick="addToCart('Dhokla', 3.0)">Add to Cart</button></li>
+    </ul>
 
-      <div class="menu-card">
-        <h3>🍡 Rasgulla</h3>
-        <p>Syrupy & spongy delight from Bengal.</p>
-        <span>$2.50</span>
-        <button>Add to Cart</button>
-      </div>
-
-      <div class="menu-card">
-        <h3>🥜 Kaju Katli</h3>
-        <p>Rich cashew diamond slices.</p>
-        <span>$4.00</span>
-        <button>Add to Cart</button>
-      </div>
-
-      <div class="menu-card">
-        <h3>🧀 Paneer Pakora</h3>
-        <p>Crispy outside, cheesy inside.</p>
-        <span>$5.00</span>
-        <button>Add to Cart</button>
-      </div>
-
-      <div class="menu-card">
-        <h3>🥟 Samosa</h3>
-        <p>Classic potato & pea filling.</p>
-        <span>$1.50</span>
-        <button>Add to Cart</button>
-      </div>
-
-      <div class="menu-card">
-        <h3>🍛 Chole Bhature</h3>
-        <p>Spicy chickpeas with fluffy bread.</p>
-        <span>$6.00</span>
-        <button>Add to Cart</button>
-      </div>
-
-    </div>
-
-  </main>
+    <h2>Beverages</h2>
+    <ul class="menu-list">
+      <li><img src="images/g9.jpeg" alt="Masala Chai" class="menu-img" /> Masala Chai - $1.50 <button class="add-btn" onclick="addToCart('Masala Chai', 1.5)">Add to Cart</button></li>
+      <li><img src="images/g10.jpeg" alt="Lassi" class="menu-img" /> Lassi - $2.50 <button class="add-btn" onclick="addToCart('Lassi', 2.5)">Add to Cart</button></li>
+      <li><img src="images/g11.jpeg" alt="Raj Kachori" class="menu-img" /> Raj Kachori - $4.00 <button class="add-btn" onclick="addToCart('Raj Kachori', 4.0)">Add to Cart</button></li>
+      <li><img src="images/g12.jpeg" alt="Pani Puri" class="menu-img" /> Pani Puri - $3.50 <button class="add-btn" onclick="addToCart('Pani Puri', 3.5)">Add to Cart</button></li>
+    </ul>
+  </section>
 
   <footer>
-    <p>&copy; 2025 Rajdhani Sweets | Deliciously Yours 🍬</p>
+    <p>&copy; 2025 Rajdhani Sweets. All rights reserved.</p>
   </footer>
 
+  <script>
+    let cart = [];
+
+    function toggleCart() {
+      document.getElementById("cart").classList.toggle("open");
+    }
+
+    function addToCart(name, price) {
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.qty++;
+      } else {
+        cart.push({ name, price, qty: 1 });
+      }
+      updateCart();
+    }
+
+    function removeFromCart(name) {
+      cart = cart.filter(item => item.name !== name);
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById("cart-items");
+      const cartCount = document.getElementById("cart-count");
+      const cartTotal = document.getElementById("cart-total");
+      cartItems.innerHTML = "";
+      let total = 0;
+      cart.forEach(item => {
+        total += item.price * item.qty;
+        const el = document.createElement("div");
+        el.className = "cart-item";
+        el.innerHTML = `${item.name} x${item.qty} - $${(item.price * item.qty).toFixed(2)} <button onclick="removeFromCart('${item.name}')">x</button>`;
+        cartItems.appendChild(el);
+      });
+      cartCount.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
+      cartTotal.textContent = total.toFixed(2);
+    }
+
+    function checkout() {
+      alert("Thank you for your order! Your checkout is being processed.");
+      cart = [];
+      updateCart();
+      toggleCart();
+    }
+  </script>
 </body>
 </html>
